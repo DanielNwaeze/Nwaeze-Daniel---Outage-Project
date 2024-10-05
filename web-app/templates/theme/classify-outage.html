@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>OMS | Classify Outage</title>
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="One page parallax responsive HTML Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Bingo HTML Template v1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="temp/theme/images/plugin.png"/>
+
+  <!-- CSS
+  ================================================== -->
+  <!-- Themefisher Icon font -->
+  <link rel="stylesheet" href="temp/theme/plugins/themefisher-font/style.css">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="temp/theme/plugins/bootstrap/bootstrap.min.css">
+  <!-- Lightbox.min css -->
+  <link rel="stylesheet" href="temp/theme/plugins/lightbox2/css/lightbox.min.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="temp/theme/plugins/animate/animate.css">
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="temp/theme/plugins/slick/slick.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="temp/theme/css/style.css">
+  <!-- Alertify Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/alertify.min.css" />
+  <!-- Include Alertify.js theme CSS (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/themes/default.min.css" />
+
+<style>
+        .alertify-notifier {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-70%, -15%);
+            z-index: 1000;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .alertify-notifier .ajs-message {
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .alertify-notifier .ajs-error {
+            background-color: #ffcccc;
+            color: #cc0000;
+        }
+        table {
+            width: 100%;
+			      font-family: 'lato', sans-serif;
+            border-collapse: collapse;
+            border: 2px solid #ddd;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            cursor: pointer; /* Add cursor pointer to indicate sortable columns */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        th.sorted-asc::after {
+            content: " ↑";
+        }
+        th.sorted-desc::after {
+            content: " ↓";
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .data-container {
+            max-height: 400px; /* Adjust the max height as needed */
+            overflow: auto;
+            border: 2px solid #ddd; /* Optional: Add border for visual clarity */
+            margin-bottom: 20px; /* Optional: Add some space at the bottom */
+        }
+
+        .page-btn {
+            width: 120px; /* Set equal width */
+            height: 40px; /* Set height */
+            background: linear-gradient(to bottom, #f0f0f0, #b0b0b0); /* Silver gradient */
+            color: black; /* Text color */
+            border: 1px solid #ccc; /* Border color */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px; /* Font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            margin: 5px; /* Margin between buttons */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            transition: background 0.3s, box-shadow 0.3s; /* Transition effects */
+        }
+        .success-message {
+            color: green;
+            display: none;
+            margin-top: 10px;
+        }
+
+</style>
+
+</head>
+<body id="body">
+
+  <!--
+  Start Preloader
+  ==================================== -->
+  <div id="preloader">
+    <div class='preloader'>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <!--
+  End Preloader
+  ==================================== -->
+
+<!--
+Fixed Navigation
+==================================== -->
+<header class="navigation fixed-top">
+	<div class="container">
+	  <!-- main nav -->
+	  <nav class="navbar navbar-expand-lg navbar-light px-0">
+		<!-- logo -->
+		<a class="navbar-brand logo" href="/">
+		  <img class="logo-default" src="temp/theme/images/plugin.png" alt="logo" style="width: 50px; height: 44px;" />
+		  <img loading="lazy" class="logo-white" src="temp/theme/images/plugin.png" alt="logo" style="width: 50px; height: 44px; filter: invert(100%);" />
+		</a>
+		<!-- /logo -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+		  aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+  
+		<div class="collapse navbar-collapse" id="navigation">
+		  <ul class="navbar-nav ml-auto text-center">
+			<li class="nav-item ">
+			  <a class="nav-link" href="/">Homepage</a>
+			</li>
+			<li class="nav-item ">
+			  <a class="nav-link" href="/about">About This Project</a>
+			</li>
+			<li class="nav-item dropdown active">
+			  <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				ML and Data Solutions <i class="tf-ion-chevron-down"></i>
+			  </a>
+			  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<li><a class="dropdown-item" href="/get-data">Weather and System Operations Temporal Data</a></li>
+				<li><a class="dropdown-item" href="/predict-outage">Outage Prediction System</a></li>
+				<li><a class="dropdown-item" href="classify-fault">Outage Classification System</a></li>
+				</li>
+			  </ul>
+			</li>
+			<li class="nav-item dropdown active">
+			  <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Geographic Information Systems (GIS) Solutions <i class="tf-ion-chevron-down"></i>
+			  </a>
+			  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<li><a class="dropdown-item" href="/outage-map">Outage Time-Series Snapshot Mapping</a></li>
+				<li><a class="dropdown-item" href="/outage-map">Heat Map Visualisation</a></li>
+				<li><a class="dropdown-item" href="/outage-map">Outage Cluster Mapping</a></li>
+				<li><a class="dropdown-item" href="/outage-map">Outage Location Filter</a></li>
+				</li>
+			  </ul>
+			</li>
+		  </ul>
+		</div>
+	  </nav>
+	  <!-- /main nav -->
+	</div>
+  </header>
+<!--
+End Fixed Navigation
+==================================== -->
+
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Outage Classification System</h2>
+				<ol class="breadcrumb header-bradcrumb justify-content-center">
+					<li class="breadcrumb-item"><a href="/" class="text-white">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Outage Classification System</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="about-shot-info section-sm">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 mt-20 width: 65%">
+				
+				<h2 class="mb-3">Quickly Pinpoint Outage Causes?<br> Streamline Outage Classification Here</h2>
+        <p>The webpage classifies power outages into categories such as Breaker, Feeder, High-Voltage (Distribution) System, Human, Customer Notification, Planned, 
+          Substation, Transmission, and Transformer faults.
+          This detailed classification helps stakeholders quickly identify and resolve issues, minimizing downtime and improving service reliability.</p>
+        <p>Refining outages into these categories allows for better trend analysis and targeted maintenance. This proactive approach enhances grid stability and 
+          optimizes resource allocation for cost-effective solutions.</p>
+        <p>Additionally, this system provides valuable insights for stakeholders. Customers receive accurate notifications and updates based on the type of outage,
+           while utility managers can make informed decisions using precise data. This transparency improves communication and trust between the
+            service provider and customers, fostering a more resilient and customer-centric power supply system.</p>
+			</div>
+			<div class="col-lg-6 mt-4 mt-lg-0">
+				
+				<h2 class="mb-3" style="text-align: center;"><br>Features to Include in CSV File</h2>
+
+        <!-- Required Features -->
+        <div class="required-features" style="max-height: 400px; max-width: 600px; overflow: auto; border: 2px solid #ccc; border-radius: 8px; padding: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          <table id="featuresTable">
+              <thead>
+                  <tr>
+                      <th>Feature</th>
+                      <th>Description</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <!-- Table rows will be inserted here by JavaScript -->
+              </tbody>
+          </table>
+          <p></p>
+          <b>
+          <a href="#" class="download-sample-btn" id="downloadSampleBtn" download="sample.csv">Download Sample CSV</a>
+      </div>
+  </div>
+				<!-- <img loading="lazy" class="img-fluid" src="temp/theme/images/company/company-image.jpg" alt=""> !-->
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="company-mission section-sm bg-gray">
+	<div class="container">
+		<div class="row">
+      <div class="col-lg-4 mt-20 width: 65%">
+        <!-- File upload form -->
+        <div class="file-upload">
+          <h2 >Upload Your CSV File Here!</h2>
+          <!-- Actual file input -->
+          <button class="page-btn" id="fileButton" onclick="triggerFileInput()">Upload File</button>
+          <input type="file" name="file" id="fileInput" style="display: none;" accept=".csv" onchange="displayFileName()">
+          <!-- Display selected file name -->
+          <div id="fileName">&nbsp;&nbsp;&nbsp;No File Selected</div>
+          <!-- Upload button -->
+          <button type="submit" class="page-btn" onclick="uploadFile()">Upload</button>
+          <div class="success-message" id="successMessage">File Uploaded Successfully!</div>
+      </div>
+      </div>
+
+      <div class="col-lg-8 mt-4 mt-lg-0">
+        <!-- Display predictions table -->
+        <div id="predictionsContainer" style="display: none; max-height: 400px; overflow: auto;
+        border: 2px solid #ccc; border-radius: 8px; padding: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <h2 class="mb-3" style="text-align: center;">Predictions</h2>
+            <div id="predictionsTable" style="overflow: auto;"></div>
+        </div>
+        <br>
+      
+        <!-- Download button -->
+        <a href="#" class="download-btn" id="downloadBtn" style="display: none;" download="predictions.csv">Download Predictions</a><br>
+        <br>
+      
+        <!-- Pagination -->
+        <div class="pagination" style="display: none;">
+            <!-- Previous page button -->
+            <button class="page-btn" id="prevPageBtn" onclick="prevPage()">Previous</button>
+            <!-- Next page button -->
+            <button class="page-btn" id="nextPageBtn" onclick="nextPage()">Next</button>
+        </div>
+      </div>
+      
+    </div>
+	</div>
+</section>
+
+
+<section class="promo-video section-sm">
+	<div class="container">
+		<div class="row justify-content-center">
+			<!-- section title -->
+			<div class="col-xl-8 col-lg-8">
+				<div class="title text-center">
+					<h2>What Next To Do?</h2>
+					<p style="font-weight: normal;">Now that your outages are classified, it's time to dive deeper.
+            Use this data to spot trends, optimize maintenance, and bolster grid stability. By leveraging
+            these insights, you'll not only minimize downtime but also enhance communication and trust with your customers.</p>
+					<div class="border"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<!-- /section title -->
+			<div class="col-md-8 mx-auto">
+				<iframe src="https://www.youtube.com/embed/Q7B3ikY82r0" width="100%" height="360" frameborder="0"
+					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!---
+Start Call To Action
+==================================== -->
+<section class="call-to-action section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-xl-6 col-lg-8 text-center">
+				<h2>Ready to Go?</h2>
+				<p style="font-weight: normal;">Check out our Outage Prediction Model to see how likely power outages are in your area.
+					It considers current system conditions, weather forecasts available above,
+					and past outage trends which you should have.
+				</p>
+        <a href="/predict-outage" class="btn btn-main">Predict Outages</a>
+        <p></p>
+        <br>
+				<p style="font-weight: normal;">Don't have system operations and/or weather data? </p>
+
+				<a href="/get-data" class="btn btn-main">Get Your Data Here</a>
+			</div>
+		</div> <!-- End row -->
+	</div> <!-- End container -->
+</section> <!-- End section -->
+
+<footer id="footer" class="bg-one">
+  <div class="top-footer">
+    <div class="container">
+      <div class="row justify-content-around">
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <h3>about</h3>
+          <p>GIS and ML for enhanced power outage management</p>
+        </div>
+        <!-- End of .col-sm-3 -->
+
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <ul>
+            <li>
+              <h3>Solutions</h3>
+            </li>
+            <li><a href="/get-data">Weather and Sytems Operations Data</a></li>
+            <li><a href="/predict-outage">Outage Prediction</a></li>
+            <li><a href="/classify-outage">Outage Classification</a></li>
+            <li><a href="/outage-map">GIS Monitoring</a></li>
+          </ul>
+        </div>
+        <!-- End of .col-sm-3 -->
+
+        <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+          <ul>
+            <li>
+              <h3>Quick Links</h3>
+            </li>
+            <li><a href="https://github.com/DanielNwaeze/ikedc-outages">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/daniel-nwaeze/">LinkedIn</a></li>
+          </ul>
+        </div>
+        <!-- End of .col-sm-3 -->
+
+      </div>
+    </div> <!-- end container -->
+  </div>
+</footer> <!-- end footer -->
+
+
+<!-- end Footer Area
+========================================== -->
+
+<!-- 
+    Essential Scripts
+    =====================================-->
+<!-- Main jQuery -->
+<script src="temp/theme/plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap4 -->
+<script src="temp/theme/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="temp/theme/plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="temp/theme/plugins/lightbox2/js/lightbox.min.js"></script>
+<!-- Owl Carousel -->
+<script src="temp/theme/plugins/slick/slick.min.js"></script>
+<!-- filter -->
+<script src="temp/theme/plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="temp/theme/plugins/smooth-scroll/smooth-scroll.min.js"></script>
+<!-- Google Map -->
+<script src="temp/theme/https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+<script src="temp/theme/plugins/google-map/gmap.js"></script>
+
+<!-- Custom js -->
+<script src="temp/theme/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
+
+<script>
+  // Global variables
+  let currentPage = 1;
+  const rowsPerPage = 10;
+  let predictionsData = [];
+
+  // Function to display the selected file name
+  function displayFileName() {
+      const fileInput = document.getElementById('fileInput');
+      const fileNameContainer = document.getElementById('fileName');
+      if (fileInput.files.length > 0) {
+          fileNameContainer.textContent = "Selected file: " + fileInput.files[0].name;
+      } else {
+          fileNameContainer.textContent = "";
+      }
+  }
+
+  // Function to upload the file
+  function uploadFile() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+      if (!file) {
+          alertify.error('Please select a file to upload.');
+          return;
+      }
+      const formData = new FormData();
+      formData.append('file', file);
+
+      fetch('/classify-outage', {
+          method: 'POST',
+          body: formData
+      })
+      .then(response => {
+          if (response.ok) {
+              // File uploaded successfully
+              document.getElementById('successMessage').style.display = 'block';
+              return response.json().then(data => {
+                  // Update predictions data
+                  predictionsData = data;
+                  // Render predictions table
+                  renderPredictionsTable();
+                  // Enable download button
+                  document.getElementById('predictionsContainer').style.display = 'block';
+                  // Show pagination
+                  document.querySelector('.pagination').style.display = 'block';
+                  // Enable download button
+                  document.getElementById('downloadBtn').style.display = 'inline-block';
+              });
+          } else {
+              // Error uploading file
+              return response.json().then(errorData => {
+                  alertify.error(errorData.detail);
+              });
+          }
+      })
+      .catch(error => {
+          // Display error message alert
+          alert(error);
+      });
+  }
+
+  // Function to render predictions table
+  function renderPredictionsTable() {
+      const predictionsTable = document.getElementById('predictionsTable');
+      predictionsTable.innerHTML = ''; // Clear previous content
+
+      // Calculate start and end indices for current page
+      const startIndex = (currentPage - 1) * rowsPerPage;
+      const endIndex = startIndex + rowsPerPage;
+
+      // Create table
+      const table = document.createElement('table');
+
+      // Create header row
+      const headerRow = table.insertRow();
+      for (const key of Object.keys(predictionsData[0])) {
+          const th = document.createElement('th');
+          th.textContent = key;
+          headerRow.appendChild(th);
+      }
+
+      // Create data rows
+      for (let i = startIndex; i < Math.min(endIndex, predictionsData.length); i++) {
+          const row = table.insertRow();
+          for (const key of Object.keys(predictionsData[i])) {
+              const cell = row.insertCell();
+              cell.textContent = predictionsData[i][key];
+          }
+      }
+
+      // Append table to predictionsTable div
+      predictionsTable.appendChild(table);
+  }
+
+  // Function to update pagination buttons
+  function updatePagination() {
+      const prevPageBtn = document.getElementById('prevPageBtn');
+      const nextPageBtn = document.getElementById('nextPageBtn');
+
+      // Disable or enable previous page button
+      prevPageBtn.disabled = currentPage === 1;
+
+      // Disable or enable next page button
+      nextPageBtn.disabled = currentPage === Math.ceil(predictionsData.length / rowsPerPage);
+  }
+
+  // Function to go to previous page
+  function prevPage() {
+      if (currentPage > 1) {
+          currentPage--;
+          renderPredictionsTable();
+          updatePagination();
+      }
+  }
+
+  // Function to go to next page
+  function nextPage() {
+      if (currentPage < Math.ceil(predictionsData.length / rowsPerPage)) {
+          currentPage++;
+          renderPredictionsTable();
+          updatePagination();
+      }
+  }
+
+  // Function to download predictions as CSV
+  function downloadPredictions() {
+    // Convert predictions data to CSV format
+    let csvContent = "data:text/csv;charset=utf-8,";
+
+    // Add header row
+    const header = ["Index", ...Object.keys(predictionsData[0])].map(field => `"${field}"`).join(",");
+    csvContent += header + "\n";
+
+    // Add data rows
+    predictionsData.forEach((row, index) => {
+        const rowData = [index, ...Object.values(row)].map(field => `"${field}"`).join(",");
+        csvContent += rowData + "\n";
+    });
+
+    // Create a link element
+    const encodedUri = encodeURI(csvContent);
+    const link = document.getElementById('downloadBtn');
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "predictions.csv");
+}
+  // Call the downloadPredictions function when the download button is clicked
+  document.getElementById('downloadBtn').addEventListener('click', downloadPredictions);
+
+  document.addEventListener('DOMContentLoaded', function () {
+  const requiredFeatures = [
+      "Fault",
+      "Date",
+      "Location",
+  ];
+
+  const featureDescriptions = [
+      "Description of the outage/fault",
+      "Date the outage occurred. Not a required feature but very useful to track outage temporal extent",
+      "Location the outage occurred. Also not a required feature but useful to track outage spatial extent",
+  ];
+
+  const tableBody = document.querySelector("#featuresTable tbody");
+
+  requiredFeatures.forEach((feature, index) => {
+      const description = featureDescriptions[index];
+      const row = document.createElement("tr");
+      const featureCell = document.createElement("td");
+      featureCell.textContent = feature;
+      const descriptionCell = document.createElement("td");
+      descriptionCell.textContent = description;
+      row.appendChild(featureCell);
+      row.appendChild(descriptionCell);
+      tableBody.appendChild(row);
+  });
+  // Function to generate and download sample CSV
+  function downloadSampleCSV() {
+      // Add column headers
+      let csvContent = requiredFeatures.join(",") + "\n";
+      console.log(csvContent)
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
+
+
+      // Create a temporary downloadable link
+      const samplelink = document.createElement('a');
+      samplelink.href = URL.createObjectURL(blob);
+      samplelink.download = 'sample.csv'; // Set download filename
+
+      // Simulate a click on the link to trigger download
+      samplelink.click();
+
+      // Revoke the temporary URL object after download
+      URL.revokeObjectURL(link.href);
+
+
+  }
+
+  // Call the downloadSampleCSV function when the download button is clicked
+  document.getElementById('downloadSampleBtn').addEventListener('click', downloadSampleCSV);
+});
+
+function triggerFileInput() {
+    document.getElementById('fileInput').click();
+}
+
+function displayFileName() {
+    const fileInput = document.getElementById('fileInput');
+    const fileNameDisplay = document.getElementById('fileName');
+    const fileName = fileInput.files.length ? fileInput.files[0].name : 'No file selected';
+    fileNameDisplay.textContent = fileName;
+}
+</script>
+
+</body>
+
+</html>

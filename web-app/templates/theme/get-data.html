@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>OMS | Get Data</title>
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="One page parallax responsive HTML Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Bingo HTML Template v1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="temp/theme/images/plugin.png"/>
+
+  <!-- CSS
+  ================================================== -->
+  <!-- Themefisher Icon font -->
+  <link rel="stylesheet" href="temp/theme/plugins/themefisher-font/style.css">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="temp/theme/plugins/bootstrap/bootstrap.min.css">
+  <!-- Lightbox.min css -->
+  <link rel="stylesheet" href="temp/theme/plugins/lightbox2/css/lightbox.min.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="temp/theme/plugins/animate/animate.css">
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="temp/theme/plugins/slick/slick.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="temp/theme/css/style.css">
+
+<style>
+        table {
+            width: 100%;
+			      font-family: 'lato', sans-serif;
+            border-collapse: collapse;
+            border: 2px solid #ddd;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            cursor: pointer; /* Add cursor pointer to indicate sortable columns */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        th.sorted-asc::after {
+            content: " ↑";
+        }
+        th.sorted-desc::after {
+            content: " ↓";
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .data-container {
+            max-height: 400px; /* Adjust the max height as needed */
+            overflow: auto;
+            border: 2px solid #ddd; /* Optional: Add border for visual clarity */
+            margin-bottom: 20px; /* Optional: Add some space at the bottom */
+            border: 2px solid #ccc; border-radius: 8px; padding: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .page-btn {
+            width: 120px; /* Set equal width */
+            height: 40px; /* Set height */
+            background: linear-gradient(to bottom, #f0f0f0, #b0b0b0); /* Silver gradient */
+            color: black; /* Text color */
+            border: 1px solid #ccc; /* Border color */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px; /* Font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            margin: 0px; /* Margin between buttons */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            transition: background 0.3s, box-shadow 0.3s; /* Transition effects */
+        }
+        .failure-message {
+            color: red;
+            margin-top: 10px;
+        }
+        .success-message {
+            color: green;
+            display: none;
+            margin-top: 10px;
+        }
+
+</style>
+
+</head>
+<body id="body">
+
+  <!--
+  Start Preloader
+  ==================================== -->
+  <div id="preloader">
+    <div class='preloader'>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <!--
+  End Preloader
+  ==================================== -->
+
+<!--
+Fixed Navigation
+==================================== -->
+<header class="navigation fixed-top">
+	<div class="container">
+	  <!-- main nav -->
+	  <nav class="navbar navbar-expand-lg navbar-light px-0">
+		<!-- logo -->
+		<a class="navbar-brand logo" href="/">
+		  <img class="logo-default" src="temp/theme/images/plugin.png" alt="logo" style="width: 50px; height: 44px;" />
+		  <img loading="lazy" class="logo-white" src="temp/theme/images/plugin.png" alt="logo" style="width: 50px; height: 44px; filter: invert(100%);" />
+		</a>
+		<!-- /logo -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+		  aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+  
+		<div class="collapse navbar-collapse" id="navigation">
+		  <ul class="navbar-nav ml-auto text-center">
+			<li class="nav-item ">
+			  <a class="nav-link" href="/">Homepage</a>
+			</li>
+			<li class="nav-item ">
+			  <a class="nav-link" href="/">About This Project</a>
+			</li>
+			<li class="nav-item dropdown active">
+			  <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				ML and Data Solutions <i class="tf-ion-chevron-down"></i>
+			  </a>
+			  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<li><a class="dropdown-item" href="/get-data">Weather and System Operations Temporal Data</a></li>
+				<li><a class="dropdown-item" href="/predict-outage">Outage Prediction System</a></li>
+				<li><a class="dropdown-item" href="classify-outage">Outage Classification System</a></li>
+				</li>
+			  </ul>
+			</li>
+			<li class="nav-item dropdown active">
+			  <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Geographic Information Systems (GIS) Solutions <i class="tf-ion-chevron-down"></i>
+			  </a>
+			  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<li><a class="dropdown-item" href="/outage-map">Outage Time-Series Snapshot Mapping</a></li>
+				<li><a class="dropdown-item" href="/outage-map">Heat Map Visualisation</a></li>
+				<li><a class="dropdown-item" href="/outage-map">Outage Cluster Mapping</a></li>
+				<li><a class="dropdown-item" href="/outage-map">Outage Location Filter</a></li>
+				</li>
+			  </ul>
+			</li>
+		  </ul>
+		</div>
+	  </nav>
+	  <!-- /main nav -->
+	</div>
+  </header>
+<!--
+End Fixed Navigation
+==================================== -->
+
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Weather and System Operations Temporal Data</h2>
+				<ol class="breadcrumb header-bradcrumb justify-content-center">
+					<li class="breadcrumb-item"><a href="/" class="text-white">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Weather and System Operations Temporal Data</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="about-shot-info section-sm">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 mt-20 width: 65%">
+				
+				<h2 class="mb-3">Don't have your data?<br> Fetch your systems operations and weather data</h2>
+				<p>Welcome to our platform for extracting Nigeria's system operations and weather data.
+					Specify start and end dates to get precise data for predicting outages.
+					Integrating multiple sources, we provide insights into the power system's vulnerabilities.</p>
+				<p>Access detailed weather data for various Nigerian locations by inputting coordinates or selecting from
+					predefined options. This helps identify weather-related factors affecting outages, enhancing
+					predictive models for more reliable forecasts.</p>
+				<p>Our platform also offers system operations data like power generation, transmission stats, and
+				 regional load demands. Correlating this with weather data reveals outage patterns, aiding predictive
+				 analytics and infrastructure improvements. This tool is essential for improving Nigeria's power system resilience
+				</p>
+			</div>
+			<div class="col-lg-6 mt-4 mt-lg-0">
+				
+				<h2 class="mb-3"><br> Get System Operations and Weather Data</h2>
+      <form id="data_form" action="/get-data" method="get" onsubmit="return submitForm()">
+          <label for="start_date">Start Date:</label><br>
+          <input type="date" id="start_date" name="start_date" required style="width: 392px;"><br>
+          <p></p>
+
+          <label for="end_date">End Date:</label><br>
+          <input type="date" id="end_date" name="end_date"  required style="width: 392px;"><br>
+          <br>
+
+          <div id="location_inputs"></div>
+          {% if message %}
+          <div class="failure-message" id="successMessage">{{message}}</div>
+          {% endif %}
+          <p></p>
+          
+
+          <button class="page-btn" type="submit">Fetch Data</button>
+      </form>
+
+				<!-- <img loading="lazy" class="img-fluid" src="temp/theme/images/company/company-image.jpg" alt=""> !-->
+			</div>
+		</div>
+	</div>
+</section>
+
+			{% if data %}
+        <section class="company-mission section-sm bg-gray">
+          <div class="container">
+            <div class="row">
+			<h3>Here's your extracted data!</h3>
+      <br>
+			<div class="data-container" >
+			<table id="data_table">
+				<thead>
+					<tr>
+						<th onclick="sortTable(0)">Date</th>
+						<th onclick="sortTable(1)">Peak Generation</th>
+						<th onclick="sortTable(2)">Daily Energy Generation</th>
+						<th onclick="sortTable(3)">Lowest Energy Generation</th>
+						<th onclick="sortTable(4)">Daily Energy Sent</th>
+						<th onclick="sortTable(5)">6:00 Generation</th>
+						<th onclick="sortTable(6)">Highest System Frequency</th>
+						<th onclick="sortTable(7)">Lowest System Frequency</th>
+						<th onclick="sortTable(8)">Highest Voltage Recorded</th>
+						<th onclick="sortTable(9)">Lowest Voltage Recorded</th>
+						<th onclick="sortTable(10)">location</th>
+						<th onclick="sortTable(11)">coordinates</th>
+						<th onclick="sortTable(12)">tempmax</th>
+						<th onclick="sortTable(13)">tempmin</th>
+						<th onclick="sortTable(14)">temp</th>
+						<th onclick="sortTable(15)">feelslikemax</th>
+						<th onclick="sortTable(16)">feelslikemin</th>
+						<th onclick="sortTable(17)">feelslike</th>
+						<th onclick="sortTable(18)">dew</th>
+						<th onclick="sortTable(19)">humidity</th>
+						<th onclick="sortTable(20)">precip</th>
+						<th onclick="sortTable(21)">precipprob</th>
+						<th onclick="sortTable(22)">precipcover</th>
+						<th onclick="sortTable(23)">preciptype</th>
+						<th onclick="sortTable(24)">snow</th>
+						<th onclick="sortTable(25)">snowdepth</th>
+						<th onclick="sortTable(26)">windgust</th>
+						<th onclick="sortTable(27)">windspeed</th>
+						<th onclick="sortTable(28)">winddir</th>
+						<th onclick="sortTable(29)">pressure</th>
+						<th onclick="sortTable(30)">cloudcover</th>
+						<th onclick="sortTable(31)">visibility</th>
+						<th onclick="sortTable(32)">solarradiation</th>
+						<th onclick="sortTable(33)">solarenergy</th>
+						<th onclick="sortTable(34)">uvindex</th>
+						<th onclick="sortTable(35)">severerisk</th>
+						<th onclick="sortTable(36)">sunrise</th>
+						<th onclick="sortTable(37)">sunset</th>
+						<th onclick="sortTable(38)">moonphase</th>
+						<th onclick="sortTable(39)">conditions</th>
+						<th onclick="sortTable(40)">description</th>
+						<th onclick="sortTable(41)">icon</th>
+						<th onclick="sortTable(42)">stations</th>
+						<th onclick="sortTable(43)">source</th>                
+					</tr>
+				</thead>
+				<tbody>
+					{% for entry in data %}
+						<tr>
+							<td>{{ entry.Date }}</td>
+							<td>{{ entry["Peak Generation"] }}</td>
+							<td>{{ entry["Daily Energy Generation"] }}</td>
+							<td>{{ entry["Lowest Energy Generation"] }}</td>
+							<td>{{ entry["Daily Energy Sent"] }}</td>
+							<td>{{ entry["6:00 Generation"] }}</td>
+							<td>{{ entry["Highest System Frequency"] }}</td>
+							<td>{{ entry["Lowest System Frequency"] }}</td>
+							<td>{{ entry["Highest Voltage Recorded"] }}</td>
+							<td>{{ entry["Lowest Voltage Recorded"] }}</td>
+							<td>{{ entry.location }}</td>
+							<td>{{ entry.coordinates }}</td>
+							<td>{{ entry.tempmax }}</td>
+							<td>{{ entry.tempmin }}</td>
+							<td>{{ entry.temp }}</td>
+							<td>{{ entry.feelslikemax }}</td>
+							<td>{{ entry.feelslikemin }}</td>
+							<td>{{ entry.feelslike }}</td>
+							<td>{{ entry.dew }}</td>
+							<td>{{ entry.humidity }}</td>
+							<td>{{ entry.precip }}</td>
+							<td>{{ entry.precipprob }}</td>
+							<td>{{ entry.precipcover }}</td>
+							<td>{{ entry.preciptype }}</td>
+							<td>{{ entry.snow }}</td>
+							<td>{{ entry.snowdepth }}</td>
+							<td>{{ entry.windgust }}</td>
+							<td>{{ entry.windspeed }}</td>
+							<td>{{ entry.winddir }}</td>
+							<td>{{ entry.pressure }}</td>
+							<td>{{ entry.cloudcover }}</td>
+							<td>{{ entry.visibility }}</td>
+							<td>{{ entry.solarradiation }}</td>
+							<td>{{ entry.solarenergy }}</td>
+							<td>{{ entry.uvindex }}</td>
+							<td>{{ entry.severerisk }}</td>
+							<td>{{ entry.sunrise }}</td>
+							<td>{{ entry.sunset }}</td>
+							<td>{{ entry.moonphase }}</td>
+							<td>{{ entry.conditions }}</td>
+							<td>{{ entry.description }}</td>
+							<td>{{ entry.icon }}</td>
+							<td>{{ entry.stations }}</td>
+							<td>{{ entry.source }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</br>
+			<button onclick="generateDownloadLink()" class="page-btn" style="width: 360px;">Download Combined NESO & Weather Data</button>
+		</br>
+		</br>
+		
+			<h4>Column Legend</h4>
+
+			<table id="legend_table">
+				<thead>
+					<tr>
+						<th>Column Name</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody id="legend_table_body">
+					<!-- Legend table rows will be added here dynamically -->
+				</tbody>
+			</table>
+		</div>
+    </div>
+  </div>
+  </section>
+			{% endif %}
+
+
+<section class="promo-video section-sm">
+	<div class="container">
+		<div class="row justify-content-center">
+			<!-- section title -->
+			<div class="col-xl-8 col-lg-8">
+				<div class="title text-center">
+					<h2>What Next To Do?</h2>
+					<p>Analyze the data to find patterns between system operations and weather conditions 
+						to predict outages. Use these insights to implement strategies for preventing outages.
+						Regularly update and monitor the data to keep your predictions accurate and reliable.</p>
+					<div class="border"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<!-- /section title -->
+			<div class="col-md-8 mx-auto">
+				<iframe src="https://www.youtube.com/embed/Q7B3ikY82r0" width="100%" height="360" frameborder="0"
+					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!---
+Start Call To Action
+==================================== -->
+<section class="call-to-action section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-xl-6 col-lg-8 text-center">
+				<h2>Ready to Go?</h2>
+				<p>Check out our Outage Prediction Model to see how likely power outages are in your data.
+					It considers current system conditions, weather forecasts available above,
+					and past outage trends which you should have.
+				</p>
+				<a href="/predict-outage" class="btn btn-main">Predict Outages</a>
+			</div>
+		</div> <!-- End row -->
+	</div> <!-- End container -->
+</section> <!-- End section -->
+
+<footer id="footer" class="bg-one">
+  <div class="top-footer">
+    <div class="container">
+      <div class="row justify-content-around">
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <h3>about</h3>
+          <p>GIS and ML for enhanced power outage management</p>
+        </div>
+        <!-- End of .col-sm-3 -->
+
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <ul>
+            <li>
+              <h3>Solutions</h3>
+            </li>
+            <li><a href="/get-data">Weather and Sytems Operations Data</a></li>
+            <li><a href="/predict-outage">Outage Prediction</a></li>
+            <li><a href="/classify-outage">Outage Classification</a></li>
+            <li><a href="/outage-map">GIS Monitoring</a></li>
+          </ul>
+        </div>
+        <!-- End of .col-sm-3 -->
+
+        <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+          <ul>
+            <li>
+              <h3>Quick Links</h3>
+            </li>
+            <li><a href="https://github.com/DanielNwaeze/ikedc-outages">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/daniel-nwaeze/">LinkedIn</a></li>
+          </ul>
+        </div>
+        <!-- End of .col-sm-3 -->
+
+      </div>
+    </div> <!-- end container -->
+  </div>
+</footer> <!-- end footer -->
+
+
+<!-- end Footer Area
+========================================== -->
+
+<!-- 
+    Essential Scripts
+    =====================================-->
+<!-- Main jQuery -->
+<script src="temp/theme/plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap4 -->
+<script src="temp/theme/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="temp/theme/plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="temp/theme/plugins/lightbox2/js/lightbox.min.js"></script>
+<!-- Owl Carousel -->
+<script src="temp/theme/plugins/slick/slick.min.js"></script>
+<!-- filter -->
+<script src="temp/theme/plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="temp/theme/plugins/smooth-scroll/smooth-scroll.min.js"></script>
+
+<!-- Custom js -->
+<script src="temp/theme/js/script.js"></script>
+
+<script>
+        function generateLocationInputs(numLocations) {
+            var locationInputs = '';
+            for (var i = 1; i <= numLocations; i++) {
+                locationInputs += '<label for="location_' + i + '">Location ' + i + ':</label>';
+                locationInputs += '<select id="location_' + i + '" name="location_' + i + '" required>';
+                locationInputs += '<option value="" selected disabled>Select Location</option>';
+                locationInputs += '<option value="abulegba_weather_data">Abulegba</option>';
+                locationInputs += '<option value="akowonjo_weather_data">Akowonjo</option>';
+                locationInputs += '<option value="ikeja_weather_data">Ikeja</option>';
+                locationInputs += '<option value="ikorodu_weather_data">Ikorodu</option>';
+                locationInputs += '<option value="oshodi_weather_data">Oshodi</option>';
+                locationInputs += '<option value="shomolu_weather_data">Shomolu</option>';
+                locationInputs += '</select><br>';
+            }
+            document.getElementById('location_inputs').innerHTML = locationInputs;
+        }
+
+        document.getElementById('start_date').addEventListener('change', function() {
+            var startDate = new Date(this.value);
+            var endDate = new Date(document.getElementById('end_date').value);
+            var dateDifference = (endDate - startDate) / (1000 * 3600 * 24);
+
+            if (dateDifference >= 5) {
+                generateLocationInputs(0); // Disable location inputs if date range exceeds 5 days
+            } else {
+                generateLocationInputs(dateDifference + 1); // Enable location inputs based on date difference
+            }
+        });
+
+        document.getElementById('end_date').addEventListener('change', function() {
+            var endDate = new Date(this.value);
+            var startDate = new Date(document.getElementById('start_date').value);
+            var dateDifference = (endDate - startDate) / (1000 * 3600 * 24);
+
+            if (dateDifference >= 5) {
+                generateLocationInputs(0); // Disable location inputs if date range exceeds 5 days
+            } else {
+                generateLocationInputs(dateDifference + 1); // Enable location inputs based on date difference
+            }
+        });
+
+    // Initialize sorting order for each column
+    const sortingOrder = {};
+
+    // Function to sort table data
+    function sortTable(columnIndex) {
+        const table = document.getElementById('data_table'); // Corrected ID
+        const tbody = table.getElementsByTagName('tbody')[0];
+
+        const rows = Array.from(tbody.getElementsByTagName('tr'));
+
+        const currentOrder = sortingOrder[columnIndex] || 'asc'; // Default to 'asc'
+
+        const ascending = currentOrder === 'asc';
+
+        rows.sort((a, b) => {
+            const aValue = a.cells[columnIndex].textContent.trim();
+            const bValue = b.cells[columnIndex].textContent.trim();
+            return ascending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+        });
+
+        // Toggle sorting order for this column
+        sortingOrder[columnIndex] = ascending ? 'desc' : 'asc';
+
+        // Re-append rows to tbody
+        rows.forEach(row => tbody.appendChild(row));
+
+        // Remove sorting indicator from all headers
+        const headers = document.querySelectorAll('#data_table th'); // Corrected ID
+        headers.forEach(header => {
+            header.classList.remove('sorted-asc');
+            header.classList.remove('sorted-desc');
+        });
+
+        // Add sorting indicator to current sorted column header
+        const currentHeader = headers[columnIndex];
+        currentHeader.classList.add(sortingOrder[columnIndex] === 'asc' ? 'sorted-asc' : 'sorted-desc');
+        }
+
+
+        function generateDownloadLink() {
+            const table = document.getElementById('data_table');
+            const thead = table.getElementsByTagName('thead')[0];
+            const rows = Array.from(table.getElementsByTagName('tbody')[0].getElementsByTagName('tr'));
+
+            // Get header names from TH elements
+            const headers = Array.from(thead.getElementsByTagName('th')).map(th => th.textContent.trim());
+
+            // Create CSV content string
+            let csvContent = '"' + headers.join('","') + '"\n'; // Add headers with proper formatting
+
+            rows.forEach(row => {
+                const cells = Array.from(row.getElementsByTagName('td')).map(cell => {
+                    // Properly format cell content
+                    let content = cell.textContent.trim();
+                    content = content.replace(/"/g, '""'); // Escape double quotes
+                    return '"' + content + '"';
+                });
+                csvContent += cells.join(',') + '\n'; // Add row data with comma separator and newline
+            });
+
+            // Create a Blob object with the CSV data
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
+
+            // Create a temporary downloadable link
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'combined_neso_weather_data.csv'; // Set download filename
+
+            // Simulate a click on the link to trigger download
+            link.click();
+
+            // Revoke the temporary URL object after download
+            URL.revokeObjectURL(link.href);
+        }
+
+        // Sample td and tr column names
+        const ColumnNames = [
+        "Date",
+        "Peak Generation",
+        "Daily Energy Generation",
+        "Lowest Energy Generation",
+        "Daily Energy Sent",
+        "6:00 Generation",
+        "Highest System Frequency",
+        "Lowest System Frequency",
+        "Highest Voltage Recorded",
+        "Lowest Voltage Recorded",
+        "location",
+        "coordinates",
+        "tempmax",
+        "tempmin",
+        "temp",
+        "feelslikemax",
+        "feelslikemin",
+        "feelslike",
+        "dew",
+        "humidity",
+        "precip",
+        "precipprob",
+        "precipcover",
+        "preciptype",
+        "snow",
+        "snowdepth",
+        "windgust",
+        "windspeed",
+        "winddir",
+        "pressure",
+        "cloudcover",
+        "visibility",
+        "solarradiation",
+        "solarenergy",
+        "uvindex",
+        "severerisk",
+        "sunrise",
+        "sunset",
+        "moonphase",
+        "conditions",
+        "description",
+        "icon",
+        "stations",
+        "source",
+
+        ];
+
+        const Descriptions = [
+        "Date of the entry",
+        "Peak energy generation",
+        "Total daily energy generation",
+        "Lowest energy generation",
+        "Total daily energy sent",
+        "Energy generation at 6:00",
+        "Highest system frequency",
+        "Lowest system frequency",
+        "Highest voltage recorded",
+        "Lowest voltage recorded",
+        "Location (Branch of Distribution Company)",
+        "Coordinates of the location",
+        "Maximum temperature at the location.",
+        "Minimum temperature at the location.",
+        "Temperature at the location. Daily values are average values (mean) for the day.",
+        "Maximum feels like temperature at the location",
+        "Minimum feels like temperature at the location",
+        "What the temperature feels like accounting for heat index or wind chill. Daily values are average values (mean) for the day",
+        "Dew point temperature",
+        "Relative humidity in %",
+        "The amount of liquid precipitation that fell or is predicted to fall in the period",
+        "The likelihood of measurable precipitation ranging from 0% to 100%",
+        "The proportion of hours where there was non-zero precipitation",
+        "An array indicating the type(s) of precipitation expected or that occurred. Possible values include rain, snow, freezingrain and ice",
+        "The amount of snow that fell or is predicted to fall. 0 or NaN for Nigeria",
+        "Depth of snow on the ground. 0 or NaN for Nigeria",
+        "The instantaneous wind speed at a location. May be empty if it is not significantly higher than the wind speed. Daily values are the maximum hourly value for the day",
+        "The sustained wind speed measured as the average windspeed that occurs",
+        "Direction from which the wind is blowing",
+        "The sea level atmospheric or barometric pressure in millibars (or hectopascals)",
+        "How much of the sky is covered in cloud ranging from 0-100",
+        "Distance at which distant objects are visible",
+        "(W/m2) the solar radiation power at the instantaneous moment of the observation (or forecast prediction)",
+        "(MJ /m2) indicates the total energy from the sun that builds up over an hour or day",
+        "A value between 0 and 10 indicating the level of ultra violet (UV) exposure for that hour or day. 10 represents high level of exposure, and 0 represents no exposure",
+        "A value between 0 and 100 representing the risk of convective storms (e.g. thunderstorms, hail and tornadoes)",
+        "The formatted time of the sunrise (For example “2022-05-23T05:50:40”)",
+        "The formatted time of the sunset (For example “2022-05-23T20:22:29”)",
+        "The fractional portion through the current moon lunation cycle ranging from 0 (the new moon) to 0.5 (the full moon) and back to 1 (the next new moon)",
+        "Textual representation of the weather conditions",
+        "Longer text descriptions suitable for displaying in weather displays. The descriptions combine the main features of the weather for the day such as precipitation or amount of cloud cover",
+        "A fixed, machine readable summary that can be used to display a weather icon",
+        "The weather stations used when collecting an historical weather observation record",
+        "the type of weather data used for this weather object. Values include historical observation (“obs”), forecast (“fcst”), historical forecast (“histfcst”) or statistical forecast (“stats”). If multiple types are used in the same day, “comb” is used. Today a combination of historical observations and forecast data."
+        ];
+
+        function generateLegendTable() {
+            const legendTableBody = document.getElementById('legend_table_body');
+            if(legendTableBody){
+              legendTableBody.innerHTML = ''; // Clear previous content
+
+            ColumnNames.forEach((ColumnName, index) => {
+                const Description = Descriptions[index];
+                const row = `<tr><td>${ColumnName}</td><td>${Description}</td></tr>`;
+                legendTableBody.innerHTML += row;
+            });
+          }
+        }
+
+        // Call the function to generate the legend table
+        generateLegendTable();
+
+</script>
+<script>$("#Date").datepicker({ dateFormat: 'dd/mm/yyyy', changeMonth: true, changeYear: true });</script>
+
+</body>
+
+</html>

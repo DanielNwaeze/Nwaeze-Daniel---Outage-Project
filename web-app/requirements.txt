@@ -1,0 +1,10 @@
+setuptools
+six
+fastapi
+pandas
+geopandas
+folium
+beautifulsoup4
+requests
+uvicorn
+python-multipart

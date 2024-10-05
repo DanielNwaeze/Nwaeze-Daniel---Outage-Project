@@ -1,0 +1,60 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light grey */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #007bff; /* Blue */
+    padding: 20px 0;
+    color: #fff; /* White */
+    display: flex; /* Added */
+    justify-content: space-between; /* Added */
+    align-items: center; /* Added */
+}
+
+.logo {
+    font-size: 28px;
+    margin: 0;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Added */
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff; /* White */
+    font-weight: bold;
+}
+
+.main-content {
+    padding: 50px 0;
+    text-align: center;
+}
+
+footer {
+    background-color: #333; /* Dark grey */
+    color: #fff; /* White */
+    padding: 20px 0;
+    text-align: center;
+}

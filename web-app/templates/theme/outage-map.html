@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>OMS | Map Outage</title>
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="One page parallax responsive HTML Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Bingo HTML Template v1.0">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="temp/theme/images/plugin.png"/>
+
+  <!-- CSS
+  ================================================== -->
+  <!-- Themefisher Icon font -->
+  <link rel="stylesheet" href="temp/theme/plugins/themefisher-font/style.css">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="temp/theme/plugins/bootstrap/bootstrap.min.css">
+  <!-- Lightbox.min css -->
+  <link rel="stylesheet" href="temp/theme/plugins/lightbox2/css/lightbox.min.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="temp/theme/plugins/animate/animate.css">
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="temp/theme/plugins/slick/slick.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="temp/theme/css/style.css">
+  <!-- Alertify Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/alertify.min.css" />
+  <!-- Include Alertify.js theme CSS (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/themes/default.min.css" />
+
+<style>
+
+.service-2 .service-item {
+  border: 1px solid #eee;
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  transition: all 0.3s ease 0s;
+}
+.service-2 .service-item:hover {
+  box-shadow: 0 5px 65px 0 rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 5px 65px 0 rgba(0, 0, 0, 0.15);
+}
+.service-2 .service-item:hover i {
+  background: #fff;
+  color: #28ABE3;
+}
+.service-2 .service-item i {
+  font-size: 30px;
+  display: inline-block;
+  background: #28ABE3 none repeat scroll 0 0;
+  border-radius: 30px;
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.1);
+  color: #fff;
+  height: 55px;
+  line-height: 55px;
+  margin-bottom: 20px;
+  width: 55px;
+  transition: all 0.3s ease 0s;
+}
+
+        .alertify-notifier {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .alertify-notifier .ajs-message {
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .alertify-notifier .ajs-error {
+            background-color: #ffcccc;
+            color: #cc0000;
+        }
+        .data-container {
+            max-height: 400px; /* Adjust the max height as needed */
+            overflow: auto;
+            border: 2px solid #ddd; /* Optional: Add border for visual clarity */
+            margin-bottom: 20px; /* Optional: Add some space at the bottom */
+        }
+
+        .page-btn {
+            width: 120px; /* Set equal width */
+            height: 40px; /* Set height */
+            background: linear-gradient(to bottom, #f0f0f0, #b0b0b0); /* Silver gradient */
+            color: black; /* Text color */
+            border: 1px solid #ccc; /* Border color */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px; /* Font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            margin: 0px; /* Margin between buttons */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            transition: background 0.3s, box-shadow 0.3s; /* Transition effects */
+        }
+        iframe {
+            margin-top: 20px;
+            border: none;
+        }
+</style>
+
+</head>
+<body id="body">
+
+  <!--
+  Start Preloader
+  ==================================== -->
+  <div id="preloader">
+    <div class='preloader'>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <!--
+  End Preloader
+  ==================================== -->
+
+<!--
+Fixed Navigation
+==================================== -->
+<header class="navigation fixed-top">
+	<div class="container">
+	  <!-- main nav -->
+	  <nav class="navbar navbar-expand-lg navbar-light px-0">
+		<!-- logo -->
+		<a class="navbar-brand logo" href="/">
+		  <img class="logo-default" src="temp/theme/images/plugin.png" alt="logo" style="width: 50px; height: 44px;" />
+		  <img loading="lazy" class="logo-white" src="temp/theme/images/plugin.png" alt="logo" style="width: 50px; height: 44px; filter: invert(100%);" />
+		</a>
+		<!-- /logo -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+		  aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+  
+		<div class="collapse navbar-collapse" id="navigation">
+		  <ul class="navbar-nav ml-auto text-center">
+			<li class="nav-item ">
+			  <a class="nav-link" href="/">Homepage</a>
+			</li>
+			<li class="nav-item ">
+			  <a class="nav-link" href="/">About This Project</a>
+			</li>
+			<li class="nav-item dropdown active">
+			  <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				ML and Data Solutions <i class="tf-ion-chevron-down"></i>
+			  </a>
+			  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<li><a class="dropdown-item" href="/get-data">Weather and System Operations Temporal Data</a></li>
+				<li><a class="dropdown-item" href="/predict-outage">Outage Prediction System</a></li>
+				<li><a class="dropdown-item" href="classify-outage">Outage Classification System</a></li>
+				</li>
+			  </ul>
+			</li>
+			<li class="nav-item dropdown active">
+			  <a class="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Geographic Information Systems (GIS) Solutions <i class="tf-ion-chevron-down"></i>
+			  </a>
+			  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<li><a class="dropdown-item" href="/outage-map">Outage Time-Series Snapshot Mapping</a></li>
+				<li><a class="dropdown-item" href="/outage-map">Heat Map Visualisation</a></li>
+				<li><a class="dropdown-item" href="/outage-map">Outage Cluster Mapping</a></li>
+				<li><a class="dropdown-item" href="/outage-map">Outage Location Filter</a></li>
+				</li>
+			  </ul>
+			</li>
+		  </ul>
+		</div>
+	  </nav>
+	  <!-- /main nav -->
+	</div>
+  </header>
+<!--
+End Fixed Navigation
+==================================== -->
+
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Outage Mapping System</h2>
+				<ol class="breadcrumb header-bradcrumb justify-content-center">
+					<li class="breadcrumb-item"><a href="/" class="text-white">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Geographic Information Systems (GIS) Solutions</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="about-shot-info section-sm">
+	<div class="container">
+		<div class="row">
+			
+				
+				<h2 class="mb-3">Want To Track Outages Effectively?<br> Explore GIS for Proactive Monitoring!</h2>
+        <p>Step into the future of outage management with an innovative Outage Mapping Webpage. Designed to provide a comprehensive view of power outages
+           across Ikeja Electric's served branches in Nigeria, this platform integrates advanced mapping technologies to visualize outage data in real-time.</p>
+        <p>Through intuitive visualizations and interactive tools, utility managers can track outage trends, identify hotspots, 
+          and pinpoint clusters with precision. This proactive approach enables quick response times and strategic resource
+           allocation, ultimately improving service reliability and customer satisfaction.</p>
+        <p>Whether analyzing historical outage patterns or monitoring current disruptions, the webpage empowers stakeholders to make
+           informed decisions and enhance the resilience of the power grid. Explore the potential of outage mapping to transform
+           outage management practices and ensure uninterrupted power supply for communities.</p>
+         
+			</div>
+			
+      <section class="service-2 section">
+      <div class="row">
+        <div class="col-md-14">
+          <div class="row text-center">
+            <div class="col-md-6 col-sm-6">
+              <div class="service-item">
+                <i class="tf-ion-ios-lightbulb-outline"></i>
+                <h4>Outage Time-Series Snapshot Mapping</h4>
+                <p>Gain a clear, chronological view of power outages over time with our Outage Time-Series Snapshot Mapping. Identify patterns and trends to understand root causes and improve responses. Visualize outages in real-time to help utility managers restore power quickly and prevent future issues.
+          </p>
+              </div>
+            </div><!-- END COL -->
+            <div class="col-md-6 col-sm-6">
+              <div class="service-item">
+                <i class="tf-ion-ios-gear"></i>
+                <h4>Heat Map Visualisation</h4>
+                <p>Our Heat Map Visualization turns raw data into color-coded maps, highlighting areas most affected by outages. This helps pinpoint frequent and severe hotspots, enabling targeted interventions to improve service stability and ensure equitable power distribution across Nigeria.
+          </p>
+              </div>
+            </div><!-- END COL -->
+            <div class="col-md-6 col-sm-6">
+              <div class="service-item">
+                <i class="tf-ion-wrench"></i>
+                <h4>Outage Cluster Mapping</h4>
+                <p>Outage Cluster Mapping helps identify outage clusters, revealing their geographic distribution and common causes. This tool distinguishes isolated incidents from systemic problems, enabling utility companies to implement strategic solutions and build more resilient infrastructure.
+          </p>
+              </div>
+            </div><!-- END COL -->
+            <div class="col-md-6 col-sm-6">
+              <div class="service-item">
+                <i class="tf-ion-ios-location"></i>
+                <h4>Outage Location Filter</h4>
+                <p>Our Outage Location Filter offers a granular view of outages in specific areas, useful for local authorities and community leaders. This precise data helps stakeholders collaborate effectively to improve power reliability for residents.</br>
+          </p>
+              </div>
+            </div><!-- END COL -->
+          </div>
+        </div>
+      </div> <!-- End row -->
+      </section>
+    
+  </div>
+				<!-- <img loading="lazy" class="img-fluid" src="temp/theme/images/company/company-image.jpg" alt=""> !-->
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="company-mission section-sm bg-gray">
+	<div class="container">
+		<div class="row">
+
+    <!-- Date Filter -->
+    <div class="container mt-5">
+      <h2 class="mb-3">Visualise and Map Outages Here!</h2>
+      <form action="/outage-map" method="get" onsubmit="return handleFormSubmit()">
+          <label for="start_date">Start Date:</label><br>
+          <input type="date" id="start_date" name="start_date" style="width: 400px;"><br>
+          <p></p>
+
+          <label for="end_date">End Date:</label><br>
+          <input type="date" id="end_date" name="end_date" style="width: 400px;"><br>
+          <p></p>
+
+          <button type="submit" class="page-btn">Filter</button>
+      </form>
+  </div>
+
+  <div id="notification" class="container mt-3">
+      {% if error_message %}
+          <div class="alert alert-danger" role="alert">
+              {{ error_message }}
+          </div>
+      {% endif %}
+  </div>
+
+
+  <div class="container">
+      <label for="map-select">Select Map:</label>
+      <select id="map-select" onchange="changeMap(this)">
+        {% if error_message %}
+            <option value="temp/map.html">Heat Map</option>
+            <option value="temp/map.html">Timestamped Points</option>
+            <option value="temp/map.html">Outage Cluster</option>
+            <option value="temp/map.html">Geolocation Filter</option>
+        {% else %}
+            <option value="temp/heatmap.html">Heat Map</option>
+            <option value="temp/timestamped_points.html">Timestamped Points</option>
+            <option value="temp/marker_cluster.html">Outage Cluster</option>
+            <option value="temp/mapfilter.html">Geolocation Filter</option>
+        {% endif %}
+      </select>
+      <div id="map-container">
+        <iframe id="map-iframe" src="{% if error_message %}temp/map.html{% else %}temp/heatmap.html{% endif %}" width="100%" height="550"></iframe>
+      </div>
+  </div>
+
+    </div>
+    </div>
+	</div>
+</section>
+
+
+<section class="promo-video section-sm">
+	<div class="container">
+		<div class="row justify-content-center">
+			<!-- section title -->
+			<div class="col-xl-8 col-lg-8">
+				<div class="title text-center">
+					<h2>What Next To Do?</h2>
+					<p style="font-weight: normal;">Leverage your findings to pinpoint problem areas and craft strategic plans
+          to improve the power infrastructure. Collaborate with local authorities for a united effort and implement
+           targeted solutions to prevent future outages. Together, we can ensure reliable electricity for all Nigerians.</p>
+					<div class="border"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<!-- /section title -->
+			<div class="col-md-8 mx-auto">
+				<iframe src="https://www.youtube.com/embed/Q7B3ikY82r0" width="100%" height="360" frameborder="0"
+					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!---
+Start Call To Action
+==================================== -->
+<section class="call-to-action section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-xl-6 col-lg-8 text-center">
+				<h2>Ready to Go?</h2>
+				<p style="font-weight: normal;">
+          Use our outage prediction model to see if an outage will occur tomorrow. Stay proactive, allocate resources
+          effectively, and ensure a stable power supply for all Nigerians. Stay ahead and keep the lights on!
+				</p>
+				<a href="/predict-outage" class="btn btn-main">Predict Outages</a>
+			</div>
+		</div> <!-- End row -->
+	</div> <!-- End container -->
+</section> <!-- End section -->
+
+<footer id="footer" class="bg-one">
+  <div class="top-footer">
+    <div class="container">
+      <div class="row justify-content-around">
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <h3>about</h3>
+          <p>GIS and ML for enhanced power outage management</p>
+        </div>
+        <!-- End of .col-sm-3 -->
+
+        <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+          <ul>
+            <li>
+              <h3>Solutions</h3>
+            </li>
+            <li><a href="/get-data">Weather and Sytems Operations Data</a></li>
+            <li><a href="/predict-outage">Outage Prediction</a></li>
+            <li><a href="/classify-outage">Outage Classification</a></li>
+            <li><a href="/outage-map">GIS Monitoring</a></li>
+          </ul>
+        </div>
+        <!-- End of .col-sm-3 -->
+
+        <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+          <ul>
+            <li>
+              <h3>Quick Links</h3>
+            </li>
+            <li><a href="https://github.com/DanielNwaeze/ikedc-outages">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/daniel-nwaeze/">LinkedIn</a></li>
+          </ul>
+        </div>
+        <!-- End of .col-sm-3 -->
+
+      </div>
+    </div> <!-- end container -->
+  </div>
+</footer> <!-- end footer -->
+
+
+<!-- end Footer Area
+========================================== -->
+
+<!-- 
+    Essential Scripts
+    =====================================-->
+<!-- Main jQuery -->
+<script src="temp/theme/plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap4 -->
+<script src="temp/theme/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- Parallax -->
+<script src="temp/theme/plugins/parallax/jquery.parallax-1.1.3.js"></script>
+<!-- lightbox -->
+<script src="temp/theme/plugins/lightbox2/js/lightbox.min.js"></script>
+<!-- Owl Carousel -->
+<script src="temp/theme/plugins/slick/slick.min.js"></script>
+<!-- filter -->
+<script src="temp/theme/plugins/filterizr/jquery.filterizr.min.js"></script>
+<!-- Smooth Scroll js -->
+<script src="temp/theme/plugins/smooth-scroll/smooth-scroll.min.js"></script>
+<!-- Google Map -->
+<script src="temp/theme/https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+<script src="temp/theme/plugins/google-map/gmap.js"></script>
+
+<!-- Custom js -->
+<script src="temp/theme/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
+
+<script>
+        // Function to validate the date format (YYYY-MM-DD)
+        function isValidDate(dateString) {
+            var regex = /^\d{4}-\d{2}-\d{2}$/;
+            return regex.test(dateString);
+        }
+
+        // Function to validate the date range
+        function validateDateRange(startDateString, endDateString) {
+            if (!isValidDate(startDateString) || !isValidDate(endDateString)) {
+                alert("Invalid date format. Please enter dates in MM-DD-YYYY format.");
+                return false;
+            }
+
+            var startDate = new Date(startDateString);
+            var endDate = new Date(endDateString);
+
+            if (startDate > endDate) {
+                alert("End date must be after start date.");
+                return false;
+            }
+
+            return true;
+        }
+
+        // Function to handle form submission with date validation
+        function handleFormSubmit() {
+          var startDate = document.getElementById("start_date").value;
+          var endDate = document.getElementById("end_date").value;
+
+          if (!startDate && !endDate) {
+              localStorage.setItem('scrollPosition', window.scrollY);
+              return true; // Retrieve full data if neither start nor end dates are filled
+          }
+
+          if (!validateDateRange(startDate, endDate)) {
+              return false; // Prevent form submission if date validation fails
+          }
+
+          localStorage.setItem('scrollPosition', window.scrollY);
+          return true; // Allow form submission if date validation passes
+      }
+
+      // Function to validate date range
+      function validateDateRange(startDate, endDate) {
+          if (startDate && endDate && new Date(startDate) > new Date(endDate)) {
+              alert("End date must be after start date.");
+              return false;
+          }
+          return true;
+      }
+
+      // Scroll to the stored position after page load
+      window.addEventListener('load', function() {
+          const scrollPosition = localStorage.getItem('scrollPosition');
+          if (scrollPosition) {
+              window.scrollTo(0, scrollPosition);
+              localStorage.removeItem('scrollPosition'); // Clean up
+          }
+      });
+
+        $(function(){
+        var today = new Date().toISOString().slice(0, 10);
+        
+        // Set end_date input field value to today's date
+        $('#end_date').val(today);
+        });
+
+        function changeMap(select) {
+        var iframe = document.getElementById('map-iframe');
+        iframe.src = select.value;
+        }
+
+</script>
+
+</body>
+
+</html>
